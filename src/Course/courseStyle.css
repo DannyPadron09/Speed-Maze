@@ -1,0 +1,22 @@
+.square {
+    display: inline-flex
+}
+
+.FLOOR {
+    background-color: 'black'
+}
+
+.ROCK {
+    background-image: url('../imgs/rock.png');
+    background-position: 55% 55%;
+}
+
+.TREE {
+    background-image: url('../imgs/tree.png');
+    background-position: 55% 35%;
+}
+
+.CHEST {
+    background-image: url('../imgs/chest.png');
+    background-position: 55% 55%;
+}
