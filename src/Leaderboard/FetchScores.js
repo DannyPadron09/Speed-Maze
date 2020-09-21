@@ -5,28 +5,35 @@ class FetchScores extends React.Component {
         super(props)
 
         this.state = {
-            username: '',
-            highScores: 0
+            players: []
         }
     }
 
     componentDidMount() {
-        fetch('http://localhost:3000/usernames')
-            .then(res => res.json())
-            .then(usernames => {
-                usernames.forEach(username => {
-                    this.setState(username)
-                })
+        fetch('http://localhost:3000/players')
+            .then(res =>  {
+                return res.json()
             })
+            .then(playersList => {
+                this.setState({ players: playersList })
+            })
+
     }
 
     render() {
+        let sortedPlayers = this.state.players.sort((a, b) => a.highScore - b.highScore)
         return (
             <div>
-                
+                <div id="container">
+                    <ul>
+                        {sortedPlayers.map((player) => (
+                            <li key={player.id}>{player.name} - {player.highScore}</li>
+                        ))}
+                    </ul>
+                </div> 
             </div>
         )
     }
 }
 
-export default FetchScores 
+export default FetchScores

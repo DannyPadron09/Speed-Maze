@@ -1,6 +1,7 @@
 import { createStore, combineReducers } from 'redux'
-import playerReducer from './Player/playerReducer'
+import playerReducer from './Player/PlayerReducer'
 import CourseReducer from './Course/CourseReducer'
+
 
 const rootReducer = combineReducers({
     player: playerReducer,

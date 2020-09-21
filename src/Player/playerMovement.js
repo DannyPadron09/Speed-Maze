@@ -1,7 +1,8 @@
+import React from 'react'
 import store from '../store.js'
-import { characterSize, mapHeight, mapWidth} from './playerSize'
-import Popup from 'react-popup'
+import { characterSize, mapHeight, mapWidth} from './PlayerSize'
 import Stopwatch from '../Leaderboard/Stopwatch'
+import HighScoreForm from '../Leaderboard/HighScoreForm.js'
 
 export default function controlMovement(player) {
     
@@ -63,15 +64,20 @@ export default function controlMovement(player) {
         const y = newPosition[1] / characterSize
         const nextSquare = Squares[y][x]
         if (nextSquare === 0)
-            return true 
+            return true
+            
         
         if (nextSquare === 9)
-            console.log('You win')
+            // return <HighScoreForm />
+            alert('You win! Enter your time in the HighScores!')
             // stop timer for leaderboard  
     }
 
     function handleKeyDown(e) {
-        e.preventDefault()//keeps page from scrolling with key presses
+        // only prevents default on arrow keys 
+        if (e.keyCode === 37 || e.keyCode === 38 || e.keyCode === 39 || e.keyCode === 40) {
+            e.preventDefault()
+        }//keeps page from scrolling with key presses
         switch(e.keyCode) {
             case 37:
                 return canWeMove('LEFT')
@@ -92,7 +98,6 @@ export default function controlMovement(player) {
 
     window.addEventListener('keydown', (e) => {
         handleKeyDown(e)
-        Stopwatch.startTimer()
     })
     return player
 }

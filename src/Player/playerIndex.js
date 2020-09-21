@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import playerWalk from './playerWalk.png'
-import controlMovement from './playerMovement'
+import playerWalk from './PlayerWalk.png'
+import controlMovement from './PlayerMovement'
 
 function Player(props) {
     return (
