@@ -1,5 +1,4 @@
 import React from 'react'
-import HighScoreForm from './HighScoreForm'
 import Player from '../Player/PlayerIndex'
 import ShowCourse from '../Course/ShowCourse.js'
 
@@ -26,7 +25,6 @@ class Stopwatch extends React.Component {
       }
 
       stopTimer = () => {
-        // dispatch time to store
         this.setState({ timerOn: false })
         clearInterval(this.timer)
       }
@@ -82,4 +80,5 @@ class Stopwatch extends React.Component {
     }
 }
 
-export default Stopwatch 
+
+export default Stopwatch

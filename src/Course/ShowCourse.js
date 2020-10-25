@@ -1,6 +1,6 @@
 import React from 'react'
 import CourseRow from './CourseRow'
-import { connect } from 'react-redux'
+import Squares from './Squares'
 
 
 function ShowCourse(props) {
@@ -18,19 +18,15 @@ function ShowCourse(props) {
                 }}>
 
                 {
+                    Squares.map(eachRow => <CourseRow squares={eachRow} />)
                     // have to map each individual row
                     // then map each individual square inside the row
-                    props.Squares.map(eachRow => <CourseRow squares={eachRow} />)
+                    /* props.Squares.map(eachRow => <CourseRow squares={eachRow} />) */
                 }
             </div>
         </div>
     )
 }
 
-const mapStateToProps = (state) => {
-    return {
-        Squares: state.course.Squares
-    }
-}
 
-export default connect(mapStateToProps)(ShowCourse)
+export default (ShowCourse)

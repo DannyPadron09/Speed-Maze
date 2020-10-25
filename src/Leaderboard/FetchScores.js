@@ -1,29 +1,30 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { fetchPlayers } from './ScoresActions'
+
 
 class FetchScores extends React.Component {
-    constructor(props) {
-        super(props)
-
-        this.state = {
-            players: []
-        }
-    }
 
     componentDidMount() {
-        fetch('http://localhost:3000/players')
-            .then(res =>  {
-                return res.json()
-            })
-            .then(playersList => {
-                this.setState({ players: playersList })
-            })
+        this.getPlayers()
+    }
 
+    getPlayers() {
+        this.props.fetchPlayers('http://localhost:3000/players')
     }
 
     render() {
-        let sortedPlayers = this.state.players.sort((a, b) => a.highScore - b.highScore)
-        return (
-            <div>
+            let sortedPlayers = this.props.playersFetched
+
+            if (sortedPlayers) {
+                sortedPlayers.sort((a, b) => a.highScore - b.highScore)
+                console.log(sortedPlayers)
+            } else {
+                return <p>Loading...</p>
+            }
+
+            return (
+                <div>
                 <div id="container">
                     <ul>
                         {sortedPlayers.map((player) => (
@@ -32,8 +33,25 @@ class FetchScores extends React.Component {
                     </ul>
                 </div> 
             </div>
-        )
+            )
+        }
+    
+}
+
+
+const mapStateToProps = (state) => {
+    return {
+        playersFetched: state.playersFetched,
+        hasError: state.playersHaveError,
+        areLoading: state.playersAreLoading
     }
 }
 
-export default FetchScores
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchPlayers: (url) => 
+        dispatch(fetchPlayers(url))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(FetchScores)

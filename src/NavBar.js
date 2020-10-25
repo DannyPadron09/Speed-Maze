@@ -1,7 +1,4 @@
 import React from 'react'
-import World from './worldContainer'
-import HighScoreForm from './Leaderboard/HighScoreForm'
-import ShowScores from './Leaderboard/ShowScores'
 import { Link } from "react-router-dom"
 
 

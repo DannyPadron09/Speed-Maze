@@ -10,4 +10,4 @@ function CourseRow(props) {
     )
 }
 
-export default CourseRow 
+export default CourseRow
