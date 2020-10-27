@@ -1,5 +1,4 @@
 import React from 'react'
-import ShowScores from './Leaderboard/ShowScores'
 import NavBar from './NavBar'
 import Stopwatch from './Leaderboard/Stopwatch'
 import HighScoreForm from './Leaderboard/HighScoreForm'

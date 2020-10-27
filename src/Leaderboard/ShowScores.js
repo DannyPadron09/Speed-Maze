@@ -1,6 +1,5 @@
 import React from 'react'
 import FetchScores from './FetchScores'
-import Stopwatch from './Stopwatch'
 
 
 class ShowScores extends React.Component {

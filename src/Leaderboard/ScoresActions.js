@@ -23,6 +23,7 @@ export function playersFetched(players) {
 export function fetchPlayers(url) {
     return (dispatch) => {
         dispatch(playersAreLoading(true))
+        console.log('c')
 
         fetch(url)
             .then((res) => {
@@ -35,7 +36,10 @@ export function fetchPlayers(url) {
                 return res 
             })
             .then((res) => res.json())
-            .then((players) => dispatch(playersFetched(players)))
-            .catch(() => dispatch(playersHaveError(true)))
+            .then((players) => {
+                console.log('d')
+                dispatch(playersFetched(players))})
+           
+                .catch(() => dispatch(playersHaveError(true)))
     }
 }

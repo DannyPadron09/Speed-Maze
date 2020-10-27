@@ -1,12 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { fetchPlayers } from './ScoresActions'
+import UpvoteButtons from './UpvoteButton'
 
 
 class FetchScores extends React.Component {
 
     componentDidMount() {
+        console.log('a')
         this.getPlayers()
+        console.log('b')
     }
 
     getPlayers() {
@@ -23,12 +26,13 @@ class FetchScores extends React.Component {
                 return <p>Loading...</p>
             }
 
+           
             return (
                 <div>
                 <div id="container">
                     <ul>
                         {sortedPlayers.map((player) => (
-                            <li key={player.id}>{player.name} - {player.highScore}</li>
+                            <li key={player.id}>{player.name} - {player.highScore}<UpvoteButtons /></li>
                         ))}
                     </ul>
                 </div> 
