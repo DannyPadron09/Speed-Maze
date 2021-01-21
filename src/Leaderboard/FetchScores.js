@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { fetchPlayers } from './ScoresActions'
-import UpvoteButtons from './UpvoteButton'
+// import UpvoteButtons from './UpvoteButton'
 
 
 class FetchScores extends React.Component {
@@ -32,7 +32,7 @@ class FetchScores extends React.Component {
                 <div id="container">
                     <ul>
                         {sortedPlayers.map((player) => (
-                            <li key={player.id}>{player.name} - {player.highScore}<UpvoteButtons /></li>
+                            <li key={player.id}>{player.name} - {player.highScore}</li>
                         ))}
                     </ul>
                 </div> 

@@ -1,24 +1,24 @@
-import React from 'react'
+// import React from 'react'
 
-class UpvoteButtons extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = { i: 0 }
-    }
+// class UpvoteButtons extends React.Component {
+//     constructor(props) {
+//         super(props)
+//         this.state = { i: 0 }
+//     }
 
-    updateCount = () => {
-        this.setState(prvState => ({
-            i: prvState.i + 1
-        }))
-    }
+//     updateCount = () => {
+//         this.setState(prvState => ({
+//             i: prvState.i + 1
+//         }))
+//     }
 
-    render() {
-        return (
-            <>
-                <button onClick={e => this.updateCount()}>Upvote {this.state.i}</button>
-            </>
-        )
-    }
-}
+//     render() {
+//         return (
+//             <>
+//                 <button onClick={this.updateCount()}>Upvote {this.state.i}</button>
+//             </>
+//         )
+//     }
+// }
 
-export default UpvoteButtons
+// export default UpvoteButtons
